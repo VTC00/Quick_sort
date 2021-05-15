@@ -23,12 +23,12 @@ void Exchange(int *a, int b, int c)
     a[c] = temp;
 }
 
-int Partition(int a[], int p, int r)
+int Partition(int a[], int l, int r)
 {
     int pivot = a[r];
     int i = p - 1;
     int j;
-    for (j = p; j < r; ++j)
+    for (j = l; j < r; ++j)
     {
         if (a[j] <= pivot)
         {
@@ -39,20 +39,20 @@ int Partition(int a[], int p, int r)
     return i+1;
 }
 
-void Sort_2part(int *a, int p, int r)
+void Sort_2part(int *a, int l, int r)
 {
     if (p < r)
     {
         printf ("before partition : \n");
-        print (a, p, r);
-        int q = partition(a, p, r);
+        print (a, l, r);
+        int q = partition(a, l, r);
         printf ("after partition : \n");
         printf ("pivot index %d\n", q);
-        print(a, p, r);
+        print(a, l, r);
         
-        quick_sort(a, p, q - 1);
+        quick_sort(a, l, q - 1);
         quick_sort(a, q + 1, r);
-    }
+    }                           
     return;
 }
 
